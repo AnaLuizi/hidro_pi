@@ -16,5 +16,4 @@ public class Professor implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long Id;
 	
-    //SDFGHJKLLLLLLLLLLLLLSDGDCUUUUUUUUUUU
 }
