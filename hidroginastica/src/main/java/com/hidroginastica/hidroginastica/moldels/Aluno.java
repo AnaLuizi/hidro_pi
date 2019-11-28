@@ -57,6 +57,4 @@ public class Aluno implements Serializable{
 		this.cpf = cpf;
 	}
 	
-	
-
 }
