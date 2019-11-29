@@ -15,7 +15,6 @@
 	<name>hidroginastica</name>
 	<description>Demo project for Spring Boot</description>
 	
-
 	<properties>
 		<java.version>1.8</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
@@ -56,7 +55,6 @@
 	<dependency>
 	    <groupId>org.junit.jupiter</groupId>
 	    <artifactId>junit-jupiter-engine</artifactId>
-	    <version>5.0.1</version>
 	    <scope>test</scope>
 	</dependency>
 		</dependencies>

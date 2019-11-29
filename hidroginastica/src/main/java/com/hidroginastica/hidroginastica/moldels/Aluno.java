@@ -14,7 +14,6 @@ public class Aluno implements Serializable{
 	
 	private static final long serialVersionUIO = 1L;
 	
-	//Alô @@@@@
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long Id;
