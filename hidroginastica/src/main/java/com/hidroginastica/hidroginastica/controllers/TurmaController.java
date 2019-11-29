@@ -18,30 +18,38 @@ import com.hidroginastica.hidroginastica.repository.TurmaRepository;
 @Controller
 public class TurmaController {
 	
-	@Autowired 
-	 private TurmaRepository tr;
+	@Autowired
+	private TurmaRepository tr;
 	
-	@RequestMapping(value="/CadastrarTurmas", method=RequestMethod.GET)
-	public String form() {
-		return "templates/CadastroTurma";
-	}
-	@RequestMapping(value="/CadastrarTurmas", method=RequestMethod.POST)
-	public String form(@Valid Turma e,BindingResult result, RedirectAttributes attributes) {
-		if(result.hasErrors()) {
-			attributes.addFlashAttribute("mensagem", "Verifique os campos!");
-			return "redirect:/CadastrarTurmas";
-		}
-		tr.save(e);
-		attributes.addFlashAttribute("mensagem", "Evento cadastrado com sucesso!");
-		return "redirect:/CadastrarTurmas";
-	}
-	@RequestMapping("/turmas")
+ @RequestMapping(value="/cadastroTurma", method=RequestMethod.GET)
+ public String form() {
+	 return "CadastroTurma";
+ }
+ @RequestMapping(value="/cadastroTurma", method=RequestMethod.POST)
+ public String form(Turma turma) {
+	 
+	 tr.save(turma);
+	 
+	 return "redirect:/cadastroTurma";
+	 
+ }
+	@RequestMapping("/listaTurmas")
 	public ModelAndView listaTurmas() {
-		ModelAndView mv = new ModelAndView("templates/ListaTurma");
-		Iterable<Turma> turmas = tr.findAll();
+		ModelAndView mv = new ModelAndView("ListaTurma"); 
+		Iterable<Turma> turmas= tr.findAll();
 		mv.addObject("turmas", turmas);
 		return mv;
+		
 	}
-
+	
+	@RequestMapping("/{codigo}")
+	public ModelAndView detalhesTurma(@PathVariable("codigo") long codigo) {
+	Turma turma =tr.findByCodigo(codigo);
+	ModelAndView mv = new ModelAndView("DetalhesTurma"); 
+	mv.addObject("turma",turma);
+	return mv;
+		
+	}
+	
 
 }

@@ -3,7 +3,7 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="UTF-8">
-<title>Lista Turma</title>
+<title>Detalhes Turma</title>
 <!--Import Google Icon Font-->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 		rel="stylesheet" />
@@ -15,30 +15,19 @@
 <link rel="stylesheet" href="style/styleCss.css"/>
 </head>
 <body>
+	<h1>Turmas</h1>
+	<div th:each="turma:${turma}">
+	<h5>Detalhes da Turma </h5>
+		<div class="row">
+		
+			<p>Código:<span th:text="${turma.codigo}"></span></p>
+			<p>Nome:<span th:text="${turma.nome}"></span></p>
+			<p>Horário:<span th:text="${turma.horario}"></span></p>
+			<p>Dias da Semana:<span th:text="${turma.diasSem}"></span></p>
 
-<table class="container">
-		<thead>
-			<tr>
-				<th>Código</th>
-				<th>Nome</th>
-				<th>Horário</th>
-				<th>Dias da Semana</th>
-				<th>Deletar</th>
-			</tr>
-
-		</thead>
-		<tbody>
-			<tr th:each="turma : ${turmas}">
-				<td><span th:text="${turma.codigo}"></span></td>
-				<td><a th:href="${(#mvc.url('TC#detalhesTurma').arg(0, turma.codigo)).build()}"><span th:text="${turma.nome}"></span></a></td>
-				<td><span th:text="${turma.horario}"></span></td>
-				<td><span th:text="${turma.diasSem}"></span></td>
-			</tr>
-		</tbody>
-	</table>
-
-
-
+		</div>
+	
+	</div>
 
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
